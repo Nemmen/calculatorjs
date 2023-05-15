@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        background-color: rgb(231, 175, 71);
+        font-family: monospace;
+      }
+      .calcu {
+        padding: 2rem;
+        margin-top: 3rem;
+        width: 100%;
+        height: max-content;
+      }
+      h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        font-size: 30px;
+        animation-name: cal;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes cal {
+        0% {
+          color: white;
+        }
+        10% {
+          color: black;
+        }
+        25% {
+          color: white;
+        }
+        50% {
+          color: white;
+        }
+        75% {
+          color: black;
+        }
+        100% {
+          color: black;
+        }
+      }
+      .screen {
+        text-align: center;
+        font-size: 14px;
+        width: 30vw;
+        max-height: max-content;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        color: white;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      .button {
+        padding: 5px;
+
+        margin-bottom: 10px;
+        width: 95px;
+        border: none;
+        overflow: hidden;
+        background-color: black;
+        font-size: 25px;
+        color: white;
+      }
+      .result {
+        width: 30vw;
+        font-size: 16px;
+        color: white;
+        height: 31px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+      }
+      .button:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+      @media only screen and (max-width: 453px) {
+        .screen {
+          width: 90%;
+        }
+        .result {
+          width: 90%;
+        }
+        .button {
+          width: 18vw;
+        }
+      }
+      @media only screen and (max-width: 1024px) and (min-width: 453px) {
+        .screen {
+          width: 412px;
+        }
+        .result {
+          width: 412px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="calcu">
+      <center>
+        <h1>calculator</h1>
+        <div class="container">
+          <div class="screen"><p id="press"></p></div>
+          <div class="result"><p id="rere"></p></div>
+          <div class="box">
+            <input type="button" class="button" id="one" value="1" />
+            <input type="button" class="button" id="two" value="2" />
+            <input type="button" class="button" id="three" value="3" />
+            <input type="button" class="button" id="plus" value="+" />
+          </div>
+          <div class="box">
+            <input type="button" class="button" id="four" value="4" />
+            <input type="button" class="button" id="five" value="5" />
+            <input type="button" class="button" id="six" value="6" />
+            <input type="button" class="button" id="minus" value="-" />
+          </div>
+          <div class="box">
+            <input type="button" class="button" id="seven" value="7" />
+            <input type="button" class="button" id="eight" value="8" />
+            <input type="button" class="button" id="nine" value="9" />
+            <input type="button" class="button" id="multiply" value="*" />
+          </div>
+          <div class="box">
+            <input type="button" class="button" id="dot" value="." />
+            <input type="button" class="button" id="zero" value="0" />
+            <input type="button" class="button" id="divide" value="/" />
+            <input type="button" class="button" id="equal" value="=" />
+          </div>
+        </div>
+      </center>
+    </section>
+    <script>
+      var sum = 0;
+      var num = 0;
+      var num1 = 0;
+      var ctr = 0;
+      var one = document.getElementById("one");
+      var two = document.getElementById("two");
+      var three = document.getElementById("three");
+      var four = document.getElementById("four");
+      var five = document.getElementById("five");
+      var six = document.getElementById("six");
+      var seven = document.getElementById("seven");
+      var eight = document.getElementById("eight");
+      var nine = document.getElementById("nine");
+      var zero = document.getElementById("zero");
+      var plus = document.getElementById("plus");
+      var minus = document.getElementById("minus");
+      var multiply = document.getElementById("multiply");
+      var divide = document.getElementById("divide");
+      var dot = document.getElementById("dot");
+      var equal = document.getElementById("equal");
+      var press = document.getElementById("press");
+      var rere = document.getElementById("rere");
+      one.addEventListener("click", function () {
+        press.innerHTML += "1";
+        num += "1";
+      });
+      two.addEventListener("click", function () {
+        press.innerHTML += "2";
+        num += "2";
+      });
+      three.addEventListener("click", function () {
+        press.innerHTML += "3";
+        num += "3";
+      });
+      four.addEventListener("click", function () {
+        press.innerHTML += "4";
+        num += "4";
+      });
+      five.addEventListener("click", function () {
+        press.innerHTML += "5";
+        num += "5";
+      });
+      six.addEventListener("click", function () {
+        press.innerHTML += "6";
+        num += "6";
+      });
+      seven.addEventListener("click", function () {
+        press.innerHTML += "7";
+        num += "7";
+      });
+      eight.addEventListener("click", function () {
+        press.innerHTML += "8";
+        num += "8";
+      });
+      nine.addEventListener("click", function () {
+        press.innerHTML += "9";
+        num += "9";
+      });
+      zero.addEventListener("click", function () {
+        press.innerHTML += "0";
+        num += "0";
+      });
+      plus.addEventListener("click", function () {
+        press.innerHTML += " + ";
+        if (ctr == 0) {
+          sum = +sum + +num;
+
+          num = 0;
+          ctr = "1";
+        } else if (ctr != 0) {
+          switch (ctr) {
+            case "1":
+              sum = +sum + +num;
+              break;
+            case "2":
+              sum = +sum - +num;
+              break;
+            case "3":
+              sum = +sum * +num;
+              break;
+            case "4":
+              sum = +sum / +num;
+              break;
+          }
+
+          num = 0;
+          ctr = "1";
+        }
+      });
+      minus.addEventListener("click", function () {
+        press.innerHTML += " - ";
+        if (ctr == 0) {
+          sum = +sum + +num;
+
+          num = 0;
+          ctr = "2";
+        } else if (ctr != 0) {
+          switch (ctr) {
+            case "1":
+              sum = +sum + +num;
+              break;
+            case "2":
+              sum = +sum - +num;
+              break;
+            case "3":
+              sum = +sum * +num;
+              break;
+            case "4":
+              sum = +sum / +num;
+              break;
+          }
+
+          num = 0;
+          ctr = "2";
+        }
+      });
+      multiply.addEventListener("click", function () {
+        press.innerHTML += " X ";
+        if (ctr == 0) {
+          sum = +sum + +num;
+
+          num = 0;
+          ctr = "3";
+        } else if (ctr != 0) {
+          switch (ctr) {
+            case "1":
+              sum = +sum + +num;
+              break;
+            case "2":
+              sum = +sum - +num;
+              break;
+            case "3":
+              sum = +sum * +num;
+              break;
+            case "4":
+              sum = +sum / +num;
+              break;
+          }
+
+          num = 0;
+          ctr = "3";
+        }
+      });
+      divide.addEventListener("click", function () {
+        press.innerHTML += " / ";
+        if (ctr == 0) {
+          sum = +sum + +num;
+
+          num = 0;
+          ctr = "4";
+        } else if (ctr != 0) {
+          switch (ctr) {
+            case "1":
+              sum = +sum + +num;
+              break;
+            case "2":
+              sum = +sum - +num;
+              break;
+            case "3":
+              sum = +sum * +num;
+              break;
+            case "4":
+              sum = +sum / +num;
+              break;
+          }
+
+          num = 0;
+          ctr = "4";
+        }
+      });
+      dot.addEventListener("click", function () {
+        press.innerHTML += ".";
+        num += ".";
+      });
+      equal.addEventListener("click", function () {
+        if (ctr != 0) {
+          switch (ctr) {
+            case "1":
+              sum = +sum + +num;
+              break;
+            case "2":
+              sum = +sum - +num;
+              break;
+            case "3":
+              sum = +sum * +num;
+              break;
+            case "4":
+              sum = +sum / +num;
+              break;
+          }
+          rere.innerHTML = sum;
+
+          num = 0;
+        } else if (ctr == 0) {
+          sum = +sum + +num;
+          rere.innerHTML = sum;
+        }
+      });
+    </script>
+  </body>
+</html>
